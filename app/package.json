@@ -69,7 +69,7 @@
     "ms": "^2.1.2",
     "nat-upnp": "^1.1.1",
     "node-fetch": "^2.6.1",
-    "node-gyp": "8.4.1",
+    "node-gyp": "^5.1.1",
     "npm": "^6.14.18",
     "normalize-url": "^3.3.0",
     "once": "^1.4.0",
@@ -102,7 +102,7 @@
     "yo-yo": "^1.4.0"
   },
   "devDependencies": {
-    "node-gyp": "8.4.1",
+    "node-gyp": "^5.1.1",
     "npm": "^6.14.18"
   }
 }
