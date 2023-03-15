@@ -1,23 +1,26 @@
 {
-  "name": "beakerbrowser",
+  "name": "beaker-ng",
   "devDependencies": {
     "browserify": "^16.0.0",
-    "electron": "11.0.0-beta.18",
-    "electron-builder": "^22.6.0",
-    "electron-notarize": "^0.3.0",
+    "electron": "11.5.0",
+    "electron-builder": "^22.14.13",
+    "electron-notarize": "^1.1.1",
     "eslint": "^4.5.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "fs-jetpack": "^1.2.0",
-    "gulp": "^4.0.0",
+    "fs-jetpack": "^1.3.1",
+    "fs-reverse": "0.0.3",
+    "gulp": "^4.0.2",
     "gulp-batch": "^1.0.5",
     "gulp-less": "^4.0.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-util": "^3.0.6",
-    "gulp-watch": "^4.3.5",
+    "gulp-plumber": "^1.2.1",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.9",
     "into-stream": "^2.0.1",
+    "node-gyp": "8.4.1",
+    "npm": "^6.14.18",
     "pre-commit": "^1.2.2",
     "q": "^1.4.1",
     "rollup": "^1.23.0",
@@ -38,7 +41,7 @@
       "./node_modules/sodium-native/**",
       "./node_modules/hyperdrive-daemon/**"
     ],
-    "copyright": "© 2020, Blue Link Labs",
+    "copyright": "© 2023 Blue Link Labs & Alex313031",
     "directories": {
       "app": "../app",
       "buildResources": "../build",
@@ -109,11 +112,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/beakerbrowser/beaker"
+    "url": "https://github.com/Alex313031/beaker-ng"
   },
   "bugs": {
-    "url": "https://github.com/beakerbrowser/beaker/issues"
+    "url": "https://github.com/Alex313031/beaker-ng/issues"
   },
-  "homepage": "https://beakerbrowser.com/",
-  "dependencies": {}
+  "homepage": "https://github.com/Alex313031/beaker-ng",
+  "dependencies": {
+    "node-gyp": "8.4.1",
+    "npm": "^6.14.18"
+  }
 }

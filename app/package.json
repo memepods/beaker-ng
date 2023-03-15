@@ -8,9 +8,9 @@
   "copyright": "© 2020, Blue Link Labs",
   "main": "main.build.js",
   "dependencies": {
-    "@beaker/dat-serve-resolve-path": "^1.0.0",
-    "@beaker/library-tools": "^1.0.0",
-    "@cliqz/adblocker": "^1.17.0",
+    "@beaker/dat-serve-resolve-path": "^1.0.1",
+    "@beaker/library-tools": "^1.0.1",
+    "@cliqz/adblocker": "^1.18.0",
     "abort-controller": "^3.0.0",
     "ajv": "^6.10.2",
     "anymatch": "^2.0.0",
@@ -38,8 +38,8 @@
     "function-queue": "0.0.12",
     "graphql": "^15.3.0",
     "graphql-fields": "^2.0.3",
-    "hyperdrive-daemon-client": "^2.0.0",
-    "hyperspace": "^3.6.1",
+    "hyperdrive-daemon-client": "^2.0.4",
+    "hyperspace": "^3.6.4",
     "icojs": "^0.12.3",
     "identify-filetype": "^1.0.0",
     "into-stream": "^3.1.0",
@@ -69,6 +69,8 @@
     "ms": "^2.1.2",
     "nat-upnp": "^1.1.1",
     "node-fetch": "^2.6.1",
+    "node-gyp": "8.4.1",
+    "npm": "^6.14.18",
     "normalize-url": "^3.3.0",
     "once": "^1.4.0",
     "os-locale": "^3.1.0",
@@ -98,5 +100,9 @@
     "winston": "github:winstonjs/winston#b4ced895b3e1ead8a616590189b003cfd9d7acca",
     "yazl": "^2.5.1",
     "yo-yo": "^1.4.0"
+  },
+  "devDependencies": {
+    "node-gyp": "8.4.1",
+    "npm": "^6.14.18"
   }
 }
