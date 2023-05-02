@@ -26,7 +26,7 @@
     "yargs": "^4.2.0"
   },
   "optionalDependencies": {
-    "appdmg": "^0.4.5",
+    "appdmg": "^0.6.6",
     "rcedit": "^0.5.0"
   },
   "build": {
@@ -40,7 +40,7 @@
       "./node_modules/sodium-native/**",
       "./node_modules/hyperdrive-daemon/**"
     ],
-    "copyright": "© 2023 Blue Link Labs & Alex313031",
+    "copyright": "© 2023 Alex313031 & Blue Link Labs",
     "directories": {
       "app": "../app",
       "buildResources": "../build",
@@ -117,7 +117,5 @@
     "url": "https://github.com/Alex313031/beaker-ng/issues"
   },
   "homepage": "https://github.com/Alex313031/beaker-ng",
-  "dependencies": {
-    "node-gyp": "^5.1.1"
-  }
+  "dependencies": {}
 }
