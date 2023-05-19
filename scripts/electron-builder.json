@@ -1,4 +1,5 @@
-"build": {
+{
+  "productName": "Beaker Browser",
   "afterSign": "./afterSignHook.js",
   "appId": "com.bluelinklabs.beaker-browser",
   "asar": false,
@@ -62,4 +63,4 @@
   "publish": {
     "provider": "github"
   }
-},
+}

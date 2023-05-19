@@ -223,6 +223,16 @@ export function buildWindowMenu (opts = {}) {
           if (win) win.close()
         },
         reserved: true
+      },
+      { type: 'separator' },
+      {
+        id: 'closeApp',
+        label: 'Exit Beaker',
+        accelerator: 'CmdOrCtrl+Shift+Q',
+        click: function (item) {
+          app.quit();
+        },
+        reserved: true
       }
     ]
   }
@@ -648,7 +658,7 @@ export function buildWindowMenu (opts = {}) {
       },
       {
         id: 'toggleHypercoreDevtools',
-        label: 'Toggle Hypercore Devtools',
+        label: 'Toggle Hypercore Dev Console',
         enabled: !noWindows,
         click: async function (item) {
           if (tab) tab.togglePaneByOrigin({url: 'beaker://hypercore-tools/'})
@@ -663,6 +673,7 @@ export function buildWindowMenu (opts = {}) {
         }
       },
       {
+        id: 'toggleShellWindow',
         label: 'Reload Shell-Window',
         enabled: !noWindows,
         click: function () {
@@ -670,17 +681,22 @@ export function buildWindowMenu (opts = {}) {
         }
       },
       {
+        id: 'toggleShellWindowDevTools',
         label: 'Toggle Shell-Window DevTools',
         enabled: !noWindows,
+        accelerator: 'F12',
         click: function () {
           win.webContents.openDevTools({mode: 'detach'})
         }
       },
       {
+        id: 'toggleChromeGPU',
         label: 'Open chrome://gpu',
         enabled: !noWindows,
+        accelerator: 'CmdorCtrl+Alt+G',
         click: function () {
-          win.webContents.openDevTools({mode: 'detach'})
+          const gpuWindow = new BrowserWindow({width: 900, height: 700, title: "GPU Internals"});
+          gpuWindow.loadURL('chrome://gpu');
         }
       }
     ]
@@ -835,6 +851,15 @@ export function buildWindowMenu (opts = {}) {
         click: function (item) {
           if (win) tabManager.create(win, 'https://github.com/Alex313031/beaker-ng/discussions', {setActive: true})
         }
+      },
+      { type: 'separator' },
+      {
+        id: 'beakerHumans',
+        label: 'View Humans.txt',
+        click: function (item) {
+          const humansWindow = new BrowserWindow({width: 532, height: 628, title: "Humans.txt"});
+            humansWindow.loadFile('./humans.txt');
+        }
       }
     ]
   }
@@ -842,6 +867,7 @@ export function buildWindowMenu (opts = {}) {
     helpMenu.submenu.push({ type: 'separator' })
     helpMenu.submenu.push({
       label: 'About',
+      id: 'beakerAbout',
       role: 'about',
       click: function (item) {
         if (win) tabManager.create(win, 'beaker://settings/?view=info', {setActive: true})

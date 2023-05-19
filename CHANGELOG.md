@@ -1,6 +1,6 @@
 ## Changelog since I forked Beaker
 
-1.2.1
+__1.2.1__
  - Updated to Electron 13.6.9
  - Changed setting defaults
  - Updated menus
@@ -10,7 +10,7 @@
  - Added auto patching of electron-builder \
    for making releases.
 
-1.2.0
+__1.2.0__
  - Fixed hyperdrive
  - Updated to Electron 12.2.3
  - Updated to node 14

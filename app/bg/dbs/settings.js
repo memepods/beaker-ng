@@ -39,7 +39,7 @@ export const setup = async function (opts) {
     custom_start_page: 'previous',
     new_tab: 'beaker://desktop/',
     new_tabs_in_foreground: 0,
-    run_background: 1,
+    run_background: 0,
     default_zoom: 0,
     browser_theme: 'dark',
     analytics_enabled: 0,
@@ -52,11 +52,11 @@ export const setup = async function (opts) {
     ],
     adblock_lists: [
       {name: 'EasyList', url: 'https://easylist.to/easylist/easylist.txt', selected: true},
-      {name: 'EasyPrivacy', url: 'https://easylist.to/easylist/easyprivacy.txt'},
-      {name: 'EasyList Cookie List', url: 'https://easylist-downloads.adblockplus.org/easylist-cookie.txt'},
-      {name: 'Fanboy\'s Social Blocking List', url: 'https://easylist.to/easylist/fanboy-social.txt'},
-      {name: 'Fanboy\'s Annoyance List', url: 'https://easylist.to/easylist/fanboy-annoyance.txt'},
-      {name: 'Adblock Warning Removal List', url: 'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt'},
+      {name: 'EasyPrivacy', url: 'https://easylist.to/easylist/easyprivacy.txt', selected: true},
+      {name: 'EasyList Cookie List', url: 'https://easylist-downloads.adblockplus.org/easylist-cookie.txt', selected: true},
+      {name: 'Fanboy\'s Social Blocking List', url: 'https://easylist.to/easylist/fanboy-social.txt', selected: true},
+      {name: 'Fanboy\'s Annoyance List', url: 'https://easylist.to/easylist/fanboy-annoyance.txt', selected: true},
+      {name: 'Adblock Warning Removal List', url: 'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt', selected: true},
     ]
   }
 

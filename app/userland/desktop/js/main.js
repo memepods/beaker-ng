@@ -86,9 +86,9 @@ class DesktopApp extends LitElement {
   }
 
   renderReleaseNotice () {
-    if (this.lastDismissedReleaseNotice >= CURRENT_VERSION) {
-      return ''
-    }
+    // if (this.lastDismissedReleaseNotice >= CURRENT_VERSION) {
+      // return ''
+    // }
     return html`
       <div class="release-notice">
         <a href=${RELEASE.url} class="view-release-notes" target="_blank">

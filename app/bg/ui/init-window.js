@@ -16,6 +16,8 @@ export function open ({isShutdown} = {isShutdown: false}) {
     autoHideMenuBar: true,
     fullscreenable: false,
     resizable: false,
+    maximizable: false,
+    alwaysOnTop: false,
     fullscreenWindowTitle: true,
     frame: false,
     width: 400,

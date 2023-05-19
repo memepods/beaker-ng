@@ -15,6 +15,8 @@ function main () {
   var scriptsDir = path.join(projectDir, 'scripts')
   rmNodeModules(scriptsDir)
   rmNodeModules(appDir)
+  rmPackageLock(scriptsDir)
+  // rmPackageLock(appDir) breaks hypercore
   run('npm install', {shell: true}, function () {
     run('npm run rebuild', {shell: true}, function () {
       run('npm run build', {shell: true}, function () {
@@ -30,11 +32,11 @@ function rmNodeModules (dir) {
   rimrafSync(dir)
 }
 
-//function rmPackageLock (dir) {
-  //var file = path.join(dir, 'package-lock.json')
-  //console.log('rm', file)
-  //rimrafSync(file)
-//}
+function rmPackageLock (dir) {
+  var file = path.join(dir, 'package-lock.json')
+  console.log('rm', file)
+  rimrafSync(file)
+}
 
 main()
 

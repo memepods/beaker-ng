@@ -29,6 +29,7 @@ const logger = logLib.child({category: 'browser'})
 
 const IS_WIN = process.platform === 'win32'
 const IS_LINUX = process.platform === 'linux'
+const IS_MAC = process.platform === 'darwin'
 const subwindows = {
   locationBar: locationBarSubwindow,
   menu: shellMenusSubwindow,
@@ -76,10 +77,11 @@ export async function setup () {
   ipcMain.on('new-window', () => createShellWindow())
   app.on('custom-window-all-closed', async () => {
     if (process.platform !== 'darwin') {
-      var runBackground = await settingsDb.get('run_background')
-      if (runBackground != 1) {
+      // Temporary fix for tab restoration not working. See tabmanager and settings history to try to fix
+      //var runBackground = await settingsDb.get('run_background')
+      //if (runBackground != 1) {
         app.quit()
-      }
+      //}
     }
   })
 
@@ -191,14 +193,16 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
   var win = new BrowserWindow(Object.assign({
     autoHideMenuBar: false,
     fullscreenable: true,
+    resizable: true,
+    maximizable: true,
     fullscreenWindowTitle: true,
     alwaysOnTop: state.isAlwaysOnTop,
     x,
     y,
-    width,
-    height,
-    minWidth,
-    minHeight,
+    width: 1024,
+    height: 768,
+    minWidth: 400,
+    minHeight: 300,
     backgroundColor: '#fff',
     webPreferences: {
       preload: PRELOAD_PATH,
@@ -324,6 +328,8 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
     // on ubuntu, the maximize/unmaximize animations require multiple resizings
     setTimeout(() => tabManager.resize(win), 250)
     setTimeout(() => tabManager.resize(win), 500)
+    tabManager.emitReplaceState(win)
+    win.emit('resize')
   }
   win.on('maximize', onMaxChange)
   win.on('unmaximize', onMaxChange)
