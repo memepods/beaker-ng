@@ -19,12 +19,10 @@ It is a continued fork of [Beaker](https://github.com/beakerbrowser/beaker).
   - [Building from source](#building-from-source)
 - [Documentation](#documentation)
   - [Env Vars](#env-vars)
-- [Vulnerability disclosure](#vulnerability-disclosure)
-- [Known issues](#known-issues)
+- [Vulnerability Disclosure](#vulnerability-disclosure)
+- [Known Issues](#known-issues)
   - [tmux](#tmux)
 - [Contributors](#contributors)
-  - [Backers](#backers)
-  - [Sponsors](#sponsors)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
