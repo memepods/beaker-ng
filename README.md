@@ -91,7 +91,7 @@ This invokes [the mad king](http://nerdist.com/wp-content/uploads/2016/05/the-ma
 
 If you're doing development, `npm run watch` to have assets build automatically.
 
-## [Documentation](https://docs.beakerbrowser.com)
+## [Documentation](https://thorium.rocks/docs.beakerbrowser.com/)
 
 ### Env Vars
 
@@ -100,11 +100,11 @@ If you're doing development, `npm run watch` to have assets build automatically.
 - `BEAKER_USER_DATA_PATH`: override the user-data path, therefore changing where data is read/written. Useful for testing. For default value see `userData` in the [electron docs](https://electron.atom.io/docs/api/app/#appgetpathname).
 - `BEAKER_DAT_QUOTA_DEFAULT_BYTES_ALLOWED`: override the default max-quota for bytes allowed to be written by a dat site. Useful for testing. Default value is `'500mb'`. This can be a Number or a String. Check [bytes.parse](https://github.com/visionmedia/bytes.js/tree/a4b9af2bf289175f12b3538eb172f2489844b1ec#bytesparsestringnumber-value-numbernull) for supported units and abbreviations.
 
-## Vulnerability disclosure
+## Vulnerability Disclosure
 
 See [SECURITY.md](./SECURITY.md) for reporting security issues and vulnerabilities.
 
-## Known issues
+## Known Issues
 
 ### tmux
 
@@ -112,16 +112,9 @@ Launching from tmux is known to cause issues with GUI apps in macOS. On Beaker, 
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
+This project exists thanks to all the people who contribute.
+[[Contribute]](CONTRIBUTING.md).
 
 ## License
 
-MIT License (MIT)
-
-Copyright (c) 2018 Blue Link Labs
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+See [LICENSE](LICENSE)
