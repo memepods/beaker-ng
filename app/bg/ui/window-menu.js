@@ -661,31 +661,29 @@ export function buildWindowMenu (opts = {}) {
         click: function (item) {
           if (tab) tab.toggleLiveReloading()
         }
+      },
+      {
+        label: 'Reload Shell-Window',
+        enabled: !noWindows,
+        click: function () {
+          win.webContents.reloadIgnoringCache()
+        }
+      },
+      {
+        label: 'Toggle Shell-Window DevTools',
+        enabled: !noWindows,
+        click: function () {
+          win.webContents.openDevTools({mode: 'detach'})
+        }
+      },
+      {
+        label: 'Open chrome://gpu',
+        enabled: !noWindows,
+        click: function () {
+          win.webContents.openDevTools({mode: 'detach'})
+        }
       }
     ]
-  }
-
-  if (getEnvVar('BEAKER_DEV_MODE')) {
-    developerMenu.submenu.unshift({
-      type: 'submenu',
-      label: 'Advanced Tools',
-      submenu: [
-        {
-          label: 'Reload Shell-Window',
-          enabled: !noWindows,
-          click: function () {
-            win.webContents.reloadIgnoringCache()
-          }
-        },
-        {
-          label: 'Toggle Shell-Window DevTools',
-          enabled: !noWindows,
-          click: function () {
-            win.webContents.openDevTools({mode: 'detach'})
-          }
-        }
-      ]
-    })
   }
 
   const gotoTabShortcut = index => ({
@@ -820,7 +818,7 @@ export function buildWindowMenu (opts = {}) {
         label: 'Beaker Help',
         accelerator: 'F1',
         click: function (item) {
-          if (win) tabManager.create(win, 'https://docs.beakerbrowser.com/', {setActive: true})
+          if (win) tabManager.create(win, 'https://web.archive.org/web/20221217064223/https://docs.beakerbrowser.com/', {setActive: true})
         }
       },
       {type: 'separator'},
@@ -828,14 +826,14 @@ export function buildWindowMenu (opts = {}) {
         id: 'reportIssue',
         label: 'Report Issue',
         click: function (item) {
-          if (win) tabManager.create(win, 'https://github.com/beakerbrowser/beaker/issues', {setActive: true})
+          if (win) tabManager.create(win, 'https://github.com/Alex313031/beaker-ng/issues', {setActive: true})
         }
       },
       {
         id: 'beakerDiscussions',
         label: 'Discussion Forum',
         click: function (item) {
-          if (win) tabManager.create(win, 'https://github.com/beakerbrowser/beaker/discussions', {setActive: true})
+          if (win) tabManager.create(win, 'https://github.com/Alex313031/beaker-ng/discussions', {setActive: true})
         }
       }
     ]
@@ -846,7 +844,7 @@ export function buildWindowMenu (opts = {}) {
       label: 'About',
       role: 'about',
       click: function (item) {
-        if (win) tabManager.create(win, 'beaker://settings', {setActive: true})
+        if (win) tabManager.create(win, 'beaker://settings/?view=info', {setActive: true})
       }
     })
   }

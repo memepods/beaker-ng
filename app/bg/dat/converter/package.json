@@ -1,4 +1,7 @@
 {
+  "name": "dat-converter",
+  "version": "1.0.1",
+  "license": "MIT",
   "dependencies": {
     "@beaker/dat-legacy-tools": "^1.1.0"
   }

@@ -205,6 +205,9 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
       defaultEncoding: 'utf-8',
       nodeIntegration: false,
       contextIsolation: false,
+      experimentalFeatures: true,
+      devTools: true,
+      worldSafeExecuteJavaScript: false,
       webviewTag: false,
       sandbox: true,
       webSecurity: false, // disable same-origin-policy in the shell window, webviews have it restored

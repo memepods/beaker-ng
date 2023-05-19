@@ -92,15 +92,22 @@ class BrowserMenu extends LitElement {
             <span class="label">Print</span>
           </div>
 
-          <div class="menu-item" @click=${e => this.onOpenPage(e, 'https://docs.beakerbrowser.com')}>
+          <div class="menu-item" @click=${e => this.onOpenPage(e, 'https://web.archive.org/web/20221217064223/https://docs.beakerbrowser.com/')}>
             <i class="far fa-life-ring"></i>
             <span class="label">Help</span>
           </div>
         </div>
 
+        <div class="section">
+          <div class="menu-item" @click=${e => this.onOpenPage(e, 'beaker://settings/?view=info')}>
+            <i class="fas fa-info-circle"></i>
+            <span class="label">About</span>
+          </div>
+        </div>
+
         ${this.daemonStatus ? html`
           <div class="network-status">
-            <div class="network-status-title">Network Status</div>
+            <div class="network-status-title">Network Status:</div>
             <div class="network-status-line">
               <span class="fa-fw fas fa-network-wired"></span>
               ${this.daemonStatus.remoteAddress || 'Unknown'}

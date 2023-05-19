@@ -34,21 +34,21 @@ export const setup = async function (opts) {
   setupPromise = setupSqliteDB(db, {migrations}, '[SETTINGS]')
 
   defaultSettings = {
-    auto_update_enabled: 1,
+    auto_update_enabled: 0,
     auto_redirect_to_dat: 1,
-    custom_start_page: 'blank',
+    custom_start_page: 'previous',
     new_tab: 'beaker://desktop/',
     new_tabs_in_foreground: 0,
     run_background: 1,
     default_zoom: 0,
-    browser_theme: 'system',
-    analytics_enabled: 1,
+    browser_theme: 'dark',
+    analytics_enabled: 0,
     extended_network_index: 'default',
     extended_network_index_url: '',
     search_engines: [
-      {name: 'DuckDuckGo', url: 'https://www.duckduckgo.com/', selected: true},
-      {name: 'Beaker', url: 'beaker://desktop/'},
-      {name: 'Google', url: 'https://www.google.com/search'}
+      {name: 'Google', url: 'https://www.google.com/search', selected: true},
+      {name: 'DuckDuckGo', url: 'https://www.duckduckgo.com/'},
+      {name: 'Beaker', url: 'beaker://desktop/'}
     ],
     adblock_lists: [
       {name: 'EasyList', url: 'https://easylist.to/easylist/easylist.txt', selected: true},

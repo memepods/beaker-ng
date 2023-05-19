@@ -39,21 +39,16 @@ class InfoSettingsView extends LitElement {
       <div class="section">
         <h2 id="information" class="subtitle-heading">About Beaker</h2>
         <p>
-          <strong>Version</strong>:
+          <strong>Version:</strong>
           ${this.browserInfo.version}
-          <button class="transparent" @click=${e => {this.isVersionsExpanded = !this.isVersionsExpanded}} style="padding: 4px 4px 3px">
-            <span class="far fa-${this.isVersionsExpanded ? 'minus' : 'plus'}-square"></span>
-          </button>
         </p>
-        ${this.isVersionsExpanded ? html`
           <ul class="versions">
             <li><strong>Electron:</strong> ${this.browserInfo.electronVersion}</li>
             <li><strong>Chromium:</strong> ${this.browserInfo.chromiumVersion}</li>
             <li><strong>Node:</strong> ${this.browserInfo.nodeVersion}</li>
             <li><strong>Hyperspace API:</strong> ${this.daemonStatus.apiVersion}</li>
           </ul>
-        ` : ''}
-        <p><strong>User data</strong>: ${this.browserInfo.paths.userData}</p>
+        <p><strong>User Data Dir:</strong> ${this.browserInfo.paths.userData}</p>
       </div>
     `
   }

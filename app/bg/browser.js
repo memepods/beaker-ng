@@ -616,13 +616,16 @@ export async function capturePage (url, opts = {}) {
     webPreferences: {
       preload: 'file://' + path.join(app.getAppPath(), 'fg', 'webview-preload', 'index.build.js'),
       contextIsolation: true,
+      experimentalFeatures: true,
+      devTools: true,
       webviewTag: false,
       sandbox: true,
       defaultEncoding: 'utf-8',
       nativeWindowOpen: true,
       nodeIntegration: false,
       navigateOnDragDrop: true,
-      enableRemoteModule: false
+      enableRemoteModule: false,
+      worldSafeExecuteJavaScript: false
     }
   })
   win.loadURL(url)

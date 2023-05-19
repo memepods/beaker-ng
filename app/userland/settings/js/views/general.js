@@ -110,7 +110,7 @@ class GeneralSettingsView extends LitElement {
           </p>
 
           <p>
-            To get the most recent version of Beaker, you'll need to <a href="https://github.com/beakerbrowser/beaker">
+            To get the most recent version of Beaker, you'll need to <a href="https://github.com/Alex313031/beaker-ng">
             build Beaker from source</a>.
           </p>
         </div>
@@ -352,7 +352,7 @@ class GeneralSettingsView extends LitElement {
     `
     return html`
       <div class="section">
-        <p>Pages should use the following "zoom" setting by default:</p>
+        <p>Pages should use the following zoom percentage by default:</p>
 
         <div>
           <select @change=${this.onChangeDefaultZoom}>
@@ -415,12 +415,12 @@ class GeneralSettingsView extends LitElement {
         <p>Browser theme:</p>
 
         <div class="radio-item">
-          <input type="radio" id="browserTheme1" name="browser-theme"
-                 value="system"
-                 ?checked=${this.settings.browser_theme === 'system'}
+          <input type="radio" id="browserTheme3" name="browser-theme"
+                 value="dark"
+                 ?checked=${this.settings.browser_theme === 'dark'}
                  @change=${this.onBrowserThemeChange} />
-          <label for="browserTheme1">
-            Default (use system value)
+          <label for="browserTheme3">
+            Dark mode
           </label>
         </div>
         <div class="radio-item">
@@ -433,12 +433,12 @@ class GeneralSettingsView extends LitElement {
           </label>
         </div>
         <div class="radio-item">
-          <input type="radio" id="browserTheme3" name="browser-theme"
-                 value="dark"
-                 ?checked=${this.settings.browser_theme === 'dark'}
+          <input type="radio" id="browserTheme1" name="browser-theme"
+                 value="system"
+                 ?checked=${this.settings.browser_theme === 'system'}
                  @change=${this.onBrowserThemeChange} />
-          <label for="browserTheme3">
-            Dark mode
+          <label for="browserTheme1">
+            Use system value
           </label>
         </div>
       </div>
@@ -471,7 +471,7 @@ class GeneralSettingsView extends LitElement {
           <ul>
             <li>An anonymous ID</li>
             <li>Your Beaker version, e.g. ${this.browserInfo.version}</li>
-            <li>Your operating system, e.g. Windows 10</li>
+            <li>Your operating system, e.g. Windows 7, Linux, etc.</li>
           </ul>
         </div>
       </div>`
