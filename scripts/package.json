@@ -24,7 +24,7 @@
     "rebuild": "gulp rebuild",
     "dist": "electron-builder --dir -p never",
     "release": "electron-builder -p never",
-    "postbuild": "gulp postbuild",
+    "release:postbuild": "gulp postbuild",
     "clean": "npm run extclean && rimraf node_modules",
     "extclean": "cd ../app && rimraf node_modules && cd bg/dat/converter && rimraf node_modules",
     "distclean": "rimraf ../dist/*",

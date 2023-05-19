@@ -185,7 +185,7 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
   let state = ensureVisibleOnSomeDisplay(Object.assign({}, defaultWindowState(), lastWindowPositioning(), windowState))
   var { x, y, width, height, minWidth, minHeight } = state
   var frameSettings = {
-    titleBarStyle: 'hidden',
+    titleBarStyle: 'hiddenInset',
     trafficLightPosition: {x: 12, y: 20},
     frame: IS_LINUX || IS_WIN,
     title: undefined
