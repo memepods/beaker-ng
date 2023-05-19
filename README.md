@@ -39,7 +39,7 @@ It is a continued fork of [Beaker](https://github.com/beakerbrowser/beaker).
 
 Requires node 12, 14, or 16.
 
-In Linux (and in some cases macOS) you need libtool, m4, autoconf, and automake:
+On Linux (and in some cases macOS) you need libtool, m4, autoconf, and automake:
 
 ```bash
 sudo apt-get install libtool m4 make g++ autoconf # debian/ubuntu
@@ -47,7 +47,7 @@ sudo dnf install libtool m4 make gcc-c++ libXScrnSaver  # fedora
 brew install libtool autoconf automake # macos
 ```
 
-In Windows, you'll need to install [Python 3.9](https://www.python.org/downloads/release/python-2913/), Visual Studio 2015 or 2017, and [Git](https://git-scm.com/download/win). (You might try [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) in place of MSVS.) Then run:
+On Windows, you'll need to install [Python 3.9](https://www.python.org/downloads/release/python-2913/), Visual Studio 2015 or 2017, and [Git](https://git-scm.com/download/win). (You might try [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) in place of MSVS.) Then run:
 
 ```powershell
 npm config set python C:\absolute\path\to\python.exe
