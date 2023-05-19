@@ -1,9 +1,13 @@
 Beaker Browser
 ======
 
-# [This project is now archived.](./archive-notice.md)
+![logo.png](build/icons/256x256.png)
 
-Beaker was an experimental peer-to-peer Web browser. It adds new APIs for building hostless applications while remaining compatible with the rest of the Web. [Visit the website.](https://beakerbrowser.com/)
+Beaker-ng is an experimental peer-to-peer Web browser. It adds new APIs for building hostless applications while remaining compatible with the rest of the Web. It can use the dat:// and hyper:// URL schemes/protocols. \
+It is a continued fork of [Beaker](https://github.com/beakerbrowser/beaker).
+[Visit the website.](https://thorium.rocks/beaker-ng/)
+
+Please feel free to open issues.
 
 ## Table of Contents
 
@@ -30,11 +34,11 @@ Beaker was an experimental peer-to-peer Web browser. It adds new APIs for buildi
 
 ### Binaries
 
-**Visit the [Releases Page](https://github.com/beakerbrowser/beaker/releases) to find the installer you need.**
+**Visit the [Releases Page](https://github.com/Alex313031/beaker-ng/releases) to find the installer you need.**
 
-### Building from source
+### Building from Source
 
-Requires node 12 or higher.
+Requires node 12, 14, or 16.
 
 In Linux (and in some cases macOS) you need libtool, m4, autoconf, and automake:
 
@@ -44,23 +48,36 @@ sudo dnf install libtool m4 make gcc-c++ libXScrnSaver  # fedora
 brew install libtool autoconf automake # macos
 ```
 
-In Windows, you'll need to install [Python 2.7](https://www.python.org/downloads/release/python-2711/), Visual Studio 2015 or 2017, and [Git](https://git-scm.com/download/win). (You might try [windows-build-tools](https://www.npmjs.com/package/windows-build-tools).) Then run:
+In Windows, you'll need to install [Python 3.9](https://www.python.org/downloads/release/python-2913/), Visual Studio 2015 or 2017, and [Git](https://git-scm.com/download/win). (You might try [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) in place of MSVS.) Then run:
 
 ```powershell
-npm config set python c:/python27
+npm config set python C:\absolute\path\to\python.exe
 npm config set msvs_version 2017
-npm install -g node-gyp
 npm install -g gulp
 ```
 
-To build:
+To Build:
 
 ```bash
-git clone https://github.com/beakerbrowser/beaker.git
+git clone https://github.com/Alex313031/beaker-ng.git
 cd beaker/scripts
 npm install # don't worry about v8 api errors building native modules - rebuild will fix
-npm run rebuild # needed after each install. see https://github.com/electron/electron/issues/5851
-npm start
+npm run rebuild # needed after each install for sqlite3. See https://github.com/electron/electron/issues/5851
+npm start # for generating installation packages, see below
+```
+
+To Clean
+
+```bash
+npm run clean # cleans node_modules
+npm run distclean # cleans 'dist' dir
+```
+
+To Build Installers
+
+```bash
+npm run dist # compiles beaker and places it in 'dist/platform-unpacked', where platform is i.e. linux, win, mac
+npm run distclean # compiles beaker and generated installation packages, i.e. .exe, .zip, .deb, .appimage, .dmg
 ```
 
 If you pull latest from the repo and get weird module errors, do:
@@ -97,7 +114,6 @@ Launching from tmux is known to cause issues with GUI apps in macOS. On Beaker, 
 ## Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
-[![](https://opencollective.com/beaker/contributors.svg?width=890)](https://github.com/beakerbrowser/beaker/graphs/contributors)
 
 ## License
 
