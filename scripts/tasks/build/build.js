@@ -22,11 +22,11 @@ var srcDir = projectDir.cwd('../app');
 
 function burnthemallMaybeTask () {
   const beakerPackageJson = projectDir.read('package.json', 'json')
-  const electronPackageJson = projectDir.read('node_modules/electron/package.json', 'json')
-  if (!beakerPackageJson || !electronPackageJson) return Promise.resolve(true)
+  const electronVer = 'git+https://github.com/castlabs/electron-releases.git#v13.6.9-wvvmp'
+  if (!beakerPackageJson || !electronVer) return Promise.resolve(true)
 
   // is the installed version of electron different than the required one?
-  if (beakerPackageJson.devDependencies.electron != electronPackageJson.version) {
+  if (beakerPackageJson.devDependencies.electron != electronVer) {
     console.log('~~Electron version change detected.~~')
     console.log('We need to rebuild to fit the new version.')
     console.log('###### BURN THEM ALL! ######')

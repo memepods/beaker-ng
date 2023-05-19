@@ -1,13 +1,44 @@
 {
   "name": "beaker-scripts",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "license": "MIT",
-  "author": "Alex313031 <Alex313031@gmail.com>",
+  "author": "Alexander Frick <alex313031@gmail.com>",
+  "homepage": "https://github.com/Alex313031/beaker-ng#readme",
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/beaker",
+    "logo": "https://opencollective.com/opencollective/logo.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alex313031/beaker-ng"
+  },
+  "bugs": {
+    "url": "https://github.com/Alex313031/beaker-ng/issues"
+  },
+  "scripts": {
+    "postinstall": "patch-package && cd ../app && npm install && cd bg/dat/converter && npm install",
+    "build": "gulp build",
+    "burnthemall": "node ./tasks/burnthemall.js",
+    "lint": "eslint --ignore-pattern 'color-thief.js' --ignore-pattern 'app/node_modules' --ignore-pattern 'vendor' --ignore-pattern '*.build.js' --ignore-pattern 'assets' --fix app",
+    "rebuild": "gulp rebuild",
+    "dist": "electron-builder --dir -p never",
+    "release": "electron-builder -p never",
+    "postbuild": "gulp postbuild",
+    "clean": "npm run extclean && rimraf node_modules",
+    "extclean": "cd ../app && rimraf node_modules && cd bg/dat/converter && rimraf node_modules",
+    "distclean": "rimraf ../dist/*",
+    "start": "gulp start",
+    "watch": "gulp start-watch"
+  },
+  "dependencies": {
+    "fs-extra": "^10.1.0"
+  },
   "devDependencies": {
     "asar": "^3.0.2",
     "browserify": "^16.5.2",
     "cross-env": "^7.0.3",
-    "electron": "13.6.9",
+    "electron": "git+https://github.com/castlabs/electron-releases.git#v13.6.9-wvvmp",
     "electron-builder": "22.14.13",
     "electron-notarize": "^1.2.2",
     "eslint": "^4.19.1",
@@ -29,42 +60,13 @@
     "patch-package": "6.4.7",
     "pre-commit": "^1.2.2",
     "rimraf": "^3.0.2",
+    "source-map-url": "^0.4.1",
     "q": "^1.5.1",
     "rollup": "^1.32.1",
     "yargs": "5.0.0"
   },
-  "dependencies": {
-    "fs-extra": "^10.1.0"
-  },
   "optionalDependencies": {
     "appdmg": "^0.6.6",
     "rcedit": "^0.5.1"
-  },
-  "scripts": {
-    "postinstall": "patch-package && cd ../app && npm install && cd bg/dat/converter && npm install",
-    "build": "gulp build",
-    "burnthemall": "node ./tasks/burnthemall.js",
-    "lint": "eslint --ignore-pattern 'color-thief.js' --ignore-pattern 'app/node_modules' --ignore-pattern 'vendor' --ignore-pattern '*.build.js' --ignore-pattern 'assets' --fix app",
-    "rebuild": "gulp rebuild",
-    "release": "electron-builder -p never && gulp postbuild",
-    "dist": "electron-builder --dir -p never",
-    "clean": "npm run extclean && rimraf node_modules",
-    "extclean": "cd ../app && rimraf node_modules && cd bg/dat/converter && rimraf node_modules",
-    "distclean": "rimraf ../dist/*",
-    "start": "gulp start",
-    "watch": "gulp start-watch"
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/beaker",
-    "logo": "https://opencollective.com/opencollective/logo.txt"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Alex313031/beaker-ng"
-  },
-  "bugs": {
-    "url": "https://github.com/Alex313031/beaker-ng/issues"
-  },
-  "homepage": "https://github.com/Alex313031/beaker-ng#readme"
+  }
 }

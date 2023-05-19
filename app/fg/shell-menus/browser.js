@@ -92,7 +92,7 @@ class BrowserMenu extends LitElement {
             <span class="label">Print</span>
           </div>
 
-          <div class="menu-item" @click=${e => this.onOpenPage(e, 'https://web.archive.org/web/20221217064223/https://docs.beakerbrowser.com/')}>
+          <div class="menu-item" @click=${e => this.onOpenPage(e, 'https://thorium.rocks/docs.beakerbrowser.com/')}>
             <i class="far fa-life-ring"></i>
             <span class="label">Help</span>
           </div>
@@ -120,7 +120,7 @@ class BrowserMenu extends LitElement {
             </div>
             ${!this.daemonStatus.holepunchable ? html`
               <div class="help">
-                <a @click=${e => this.onOpenPage(e, 'https://docs.beakerbrowser.com/help/hole-punchability')}>
+                <a @click=${e => this.onOpenPage(e, 'https://thorium.rocks/docs.beakerbrowser.com/help/hole-punchability')}>
                   <span class="far fa-fw fa-question-circle"></span> What does this mean?
                 </a>
             </div>

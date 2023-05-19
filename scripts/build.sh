@@ -29,7 +29,10 @@ displayHelp () {
 	printf "${bold}${YEL}Use the --deps flag to install build dependencies.${c0}\n" &&
 	printf "${bold}${YEL}Use the --build flag to build Beaker-ng.${c0}\n" &&
 	printf "${bold}${YEL}Use the --clean flag to run \`npm run clean\`.${c0}\n" &&
+	printf "${bold}${YEL}Use the --distclean flag to remove built packages.${c0}\n" &&
+	printf "${bold}${YEL}Use the --burn flag to burnthemall!.${c0}\n" &&
 	printf "${bold}${YEL}Use the --dist flag to generate installation packages.${c0}\n" &&
+	printf "${bold}${YEL}Use the --dir flag to build an unpacked dir in \`dist\`.${c0}\n" &&
 	printf "${bold}${YEL}Use the --help flag to show this help.${c0}\n" &&
 	printf "\n"
 }
@@ -39,7 +42,7 @@ esac
 
 # Install prerequisites
 installDeps () {
-	sudo apt-get install build-essential fakeroot git libsecret-1-dev libx11-dev libxkbfile-dev python2 python2.7-dev rpm
+	sudo apt-get install autoconf build-essential fakeroot git libsecret-1-dev libtool libx11-dev libxkbfile-dev m4 make g++ python2 python2.7-dev
 }
 case $1 in
 	--deps) installDeps; exit 0;;
@@ -53,6 +56,16 @@ cleanBeaker () {
 }
 case $1 in
 	--clean) cleanBeaker; exit 0;;
+esac
+
+distcleanBeaker () {
+	printf "\n" &&
+	printf "${bold}${YEL} Cleaning node_modules...${c0}\n" &&
+	
+	npm run distclean
+}
+case $1 in
+	--distclean) distcleanBeaker; exit 0;;
 esac
 
 buildBeaker () {
@@ -108,6 +121,32 @@ case $1 in
 	--burn) burnBeaker; exit 0;;
 esac
 
+releaseBeaker () {
+# Optimization parameters
+export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
+export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
+export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
+export LDFLAGS="-Wl,-O3 -mavx -maes -s" &&
+export VERBOSE=1 &&
+export V=1 &&
+
+# Set msvs_version for node-gyp on Windows
+export MSVS_VERSION="2017" &&
+export GYP_MSVS_VERSION="2017" &&
+# Download electron binaries here
+export ELECTRON_CACHE="${PWD}/electron/bin" &&
+export electron_config_cache="${PWD}/electron/bin" &&
+
+printf "\n" &&
+printf "${bold}${GRE} Generating installation packages...${c0}\n" &&
+printf "\n" &&
+
+npm run release
+}
+case $1 in
+	--dist) releaseBeaker; exit 0;;
+esac
+
 packageBeaker () {
 # Optimization parameters
 export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
@@ -131,7 +170,7 @@ printf "\n" &&
 npm run dist
 }
 case $1 in
-	--dist) packageBeaker; exit 0;;
+	--dir) packageBeaker; exit 0;;
 esac
 
 printf "\n" &&
@@ -139,7 +178,10 @@ printf "${bold}${GRE}Script to build Beaker-ng on Linux.${c0}\n" &&
 printf "${bold}${YEL}Use the --deps flag to install build dependencies.${c0}\n" &&
 printf "${bold}${YEL}Use the --build flag to build Beaker-ng.${c0}\n" &&
 printf "${bold}${YEL}Use the --clean flag to run \`npm run clean\`.${c0}\n" &&
+printf "${bold}${YEL}Use the --distclean flag to remove built packages.${c0}\n" &&
+printf "${bold}${YEL}Use the --burn flag to burnthemall!.${c0}\n" &&
 printf "${bold}${YEL}Use the --dist flag to generate installation packages.${c0}\n" &&
+printf "${bold}${YEL}Use the --dir flag to build an unpacked dir in \`dist\`.${c0}\n" &&
 printf "${bold}${YEL}Use the --help flag to show this help.${c0}\n" &&
 printf "\n" &&
 

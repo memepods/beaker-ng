@@ -65,10 +65,10 @@ process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = '1' // we know, we know
 // see https://github.com/electron/electron/issues/20730
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
-// Needed for Electron <14 on Linux
-app.commandLine.appendSwitch('no-sandbox');
-// Needed for Electron <14 on Linux
-app.commandLine.appendSwitch('disable-gpu-sandbox');
+// Needed for Electron <13 on Linux
+// app.commandLine.appendSwitch('no-sandbox');
+// Needed for Electron <13 on Linux
+//app.commandLine.appendSwitch('disable-gpu-sandbox');
 // Including new Canvas2D APIs
 app.commandLine.appendSwitch('new-canvas-2d-api');
 // These two allow easier local web development

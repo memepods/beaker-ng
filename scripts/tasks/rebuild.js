@@ -21,8 +21,8 @@ gulp.task('rebuild', gulp.series(async () => {
   if (process.platform === 'darwin') {
     env = {
       // required to make spellchecker compile
-      CXXFLAGS: '-mmacosx-version-min=10.10',
-      LDFLAGS: '-mmacosx-version-min=10.10'
+      CXXFLAGS: '-mmacosx-version-min=10.11',
+      LDFLAGS: '-mmacosx-version-min=10.11'
     }
   }
   env.HOME = path.join(homedir, '.electron-gyp')

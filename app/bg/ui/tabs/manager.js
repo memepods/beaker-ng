@@ -1267,6 +1267,7 @@ rpc.exportAPI('background-process-views', viewsRPCManifest, {
       { label: 'Close Tabs to the Right', click: () => removeAllToRightOf(win, tab) },
       { type: 'separator' },
       { label: 'New Tab', click: () => create(win, null, {setActive: true}) },
+      { label: 'New Tab to the Right', click: () => create(win, null, {setActive: true, adjacentActive: true}) },
       { label: 'Reopen Closed Tab', click: () => reopenLastRemoved(win) }
     ])
     menu.popup()

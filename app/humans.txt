@@ -1,4 +1,4 @@
-## quark-player humans.txt ##
+## Beaker-ng humans.txt ##
 
 # Copyright (c) 2023 Alex313031.
 # https://humanstxt.org/
@@ -12,24 +12,24 @@
 	Email: alex313031@gmail.com
 	From: Oklahoma, US
 
-	Developer: Oscar Beaumont
+	Developer: Paul Frazee
 	Role: Original Developer
-	Twitter: @oscartbeaumont
-	GitHub: @oscartbeaumont
-	Email: mailto:oscar@otbeaumont.me
-	From: Australia
+	Twitter: @pfrazee
+	GitHub: @pfrazee
+	Email: pfrazee@gmail.com
+	From: Austin, TX
 
 /* THANKS */
 
-	sindresorhus
-	AR-CADE
-	oscartbeaumont
+	pfrazee
+	andrewosh
+	timechain.academy
 	castlabs
 	electronjs
 
 /* WEBUI */
 
-	Last update: 2023/05/15
+	Last update: 2023/05/19
 	Language: English
-	Doctype: HTML5, CSS, JSON
+	Doctype: HTML5, CSS, JSON, XML
 	IDE: Geany
