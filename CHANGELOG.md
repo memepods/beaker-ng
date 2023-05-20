@@ -1,9 +1,22 @@
 ## Changelog since I forked Beaker
+
+__1.2.3__
+ - Added https://beaker-browser.gitbook.io/
+ - Fixed package-lock hyperspace issue (pinned sodium)
+ - Update @beaker/dat-serve-resolve-path to my new fork > https://github.com/Alex313031/dat-serve-resolve-path
+ - Update main icon/logo
+ - Update toolbar style and highlight CSS colors
+ - Update sqlite3 to 5.1.4
+ - Update more npm deps and lock them to specific versions to prevent things like the \
+   package-lock hyperspace issue from happening again.
+
 __1.2.2__
  - Update links
  - Ressurect the documentation page, it is now at https://thorium.rocks/docs.beakerbrowser.com/
  - Update new tab page
  - Update menus
+ - Update shortcuts
+ - Add chrome://gpu page
  - Add shortcuts for duplicating tab
  - Add new tab to the right shortcut and menu
  - Add humans.txt
@@ -17,6 +30,7 @@ __1.2.1__
  - Changed some CSS
  - Updated AdBlocker
  - Updated more npm deps
+ - Now using my own fork of pauls-electron-rpc > https://github.com/Alex313031/pauls-electron-rpc
  - Added auto patching of electron-builder \
    for making releases.
 
@@ -26,6 +40,7 @@ __1.2.0__
  - Updated to node 14
  - Removed Analytics
  - Updated npm deps
+ - Update sqlite3 to 5.1.2
 
 __1.1.2__
  - Updated to Electron 11.5.0

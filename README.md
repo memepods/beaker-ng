@@ -74,7 +74,10 @@ To Build Installers
 
 ```bash
 npm run dist # compiles beaker and places it in 'dist/platform-unpacked', where platform is i.e. linux, win, mac
-npm run distclean # compiles beaker and generated installation packages, i.e. .exe, .zip, .deb, .appimage, .dmg
+npm run distclean # cleans 'dist'
+npm run dist-linux # to make .deb, .appimage, and .zip
+npm run dist-win # to make .exe and .zip
+npm run dist-mac # to make .dmg and .app
 ```
 
 If you pull latest from the repo and get weird module errors, do:

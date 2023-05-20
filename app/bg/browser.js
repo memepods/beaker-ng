@@ -620,6 +620,7 @@ export async function capturePage (url, opts = {}) {
       devTools: true,
       webviewTag: false,
       sandbox: true,
+      plugins: true,
       defaultEncoding: 'utf-8',
       nativeWindowOpen: true,
       nodeIntegration: false,

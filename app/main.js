@@ -56,10 +56,14 @@ if (getEnvVar('BEAKER_USER_DATA_PATH')) {
 if (getEnvVar('BEAKER_TEST_DRIVER')) {
   testDriver.setup()
 }
-process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = '1' // we know, we know
+
+// we know, we know
+//delete process.env.ELECTRON_ENABLE_SECURITY_WARNINGS;
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
+//process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = '1'
 
 // enable the sandbox
-// app.enableSandbox()
+app.enableSandbox()
 
 // HACK fix for cors in custom protocols
 // see https://github.com/electron/electron/issues/20730

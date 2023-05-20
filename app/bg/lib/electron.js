@@ -29,6 +29,7 @@ export async function spawnAndExecuteJs (url, js) {
       worldSafeExecuteJavaScript: false, // TODO- this causes promises to fail in executeJavaScript, need to file an issue with electron
       webviewTag: false,
       sandbox: true,
+      plugins: true,
       experimentalFeatures: true,
       devTools: true,
       defaultEncoding: 'utf-8',

@@ -70,9 +70,9 @@ esac
 
 buildBeaker () {
 # Optimization parameters
-export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
+export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
 export LDFLAGS="-Wl,-O3 -mavx -maes -s" &&
 export VERBOSE=1 &&
 export V=1 &&
@@ -97,9 +97,9 @@ esac
 
 burnBeaker () {
 # Optimization parameters
-export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
+export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
 export LDFLAGS="-Wl,-O3 -mavx -maes -s" &&
 export VERBOSE=1 &&
 export V=1 &&
@@ -123,9 +123,9 @@ esac
 
 releaseBeaker () {
 # Optimization parameters
-export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
+export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
 export LDFLAGS="-Wl,-O3 -mavx -maes -s" &&
 export VERBOSE=1 &&
 export V=1 &&
@@ -141,7 +141,8 @@ printf "\n" &&
 printf "${bold}${GRE} Generating installation packages...${c0}\n" &&
 printf "\n" &&
 
-npm run release
+export NODE_ENV=production &&
+npm run dist-linux
 }
 case $1 in
 	--dist) releaseBeaker; exit 0;;
@@ -149,9 +150,9 @@ esac
 
 packageBeaker () {
 # Optimization parameters
-export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
-export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type" &&
+export CFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CXXFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
+export CPPFLAGS="-DNDEBUG -mavx -maes -O3 -g0 -s -Wno-deprecated-declarations -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-variable" &&
 export LDFLAGS="-Wl,-O3 -mavx -maes -s" &&
 export VERBOSE=1 &&
 export V=1 &&
@@ -167,6 +168,7 @@ printf "\n" &&
 printf "${bold}${GRE} Generating installation packages...${c0}\n" &&
 printf "\n" &&
 
+export NODE_ENV=production &&
 npm run dist
 }
 case $1 in

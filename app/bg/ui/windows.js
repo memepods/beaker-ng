@@ -214,6 +214,7 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
       worldSafeExecuteJavaScript: false,
       webviewTag: false,
       sandbox: true,
+      plugins: true,
       webSecurity: false, // disable same-origin-policy in the shell window, webviews have it restored
       // enableRemoteModule: false, TODO would prefer this were true, but shell window needs this to get the webviews' webContents IDs -prf
       allowRunningInsecureContent: false,

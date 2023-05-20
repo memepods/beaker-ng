@@ -1,0 +1,11 @@
+----TODO----
+
+Fix webterm
+Fix app package-lock.json
+Fix tab restore
+
+------------Notes-----------------
+main accent color:
+#5746FF
+
+python3 -m castlabs_evs.vmp sign-pkg out\win-unpacked

@@ -584,9 +584,18 @@ export function buildWindowMenu (opts = {}) {
   }
 
   var showHistoryAccelerator = 'Ctrl+H'
-
   if (process.platform === 'darwin') {
     showHistoryAccelerator = 'Cmd+Y'
+  }
+
+  var navigateBackwardAccelerator = 'Alt+Left'
+  if (process.platform === 'darwin') {
+    navigateBackwardAccelerator = 'Cmd+Left'
+  }
+
+  var navigateForwardAccelerator = 'Alt+Right'
+  if (process.platform === 'darwin') {
+    navigateForwardAccelerator = 'Cmd+Right'
   }
 
   var historyMenu = {
@@ -595,18 +604,18 @@ export function buildWindowMenu (opts = {}) {
     submenu: [
       {
         id: 'back',
-        label: 'Back',
+        label: 'Go Back',
         enabled: !noWindows,
-        accelerator: 'CmdOrCtrl+Left',
+        accelerator: navigateBackwardAccelerator,
         click: function (item) {
           if (tab) tab.webContents.goBack()
         }
       },
       {
         id: 'forward',
-        label: 'Forward',
+        label: 'Go Forward',
         enabled: !noWindows,
-        accelerator: 'CmdOrCtrl+Right',
+        accelerator: navigateForwardAccelerator,
         click: function (item) {
           if (tab) tab.webContents.goForward()
         }

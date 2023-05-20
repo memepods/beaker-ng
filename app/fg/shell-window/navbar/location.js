@@ -177,7 +177,7 @@ class NavbarLocation extends LitElement {
         <input
           type="text"
           value="${this.modifiedUrl}"
-          placeholder="Search or enter your address here"
+          placeholder="Search or enter an address here"
           @focus=${this.onFocusLocation}
           @blur=${this.onBlurLocation}
           @input=${this.onInputLocation}
@@ -193,7 +193,7 @@ class NavbarLocation extends LitElement {
     if (this.url.startsWith('beaker://desktop')) {
       return html`
         <div class="input-pretty" @mouseup=${this.onClickLocation}>
-          <span class="syntax">Search or enter your address here</span>
+          <span class="syntax">Search or enter an address here</span>
         </div>
       `
     }
