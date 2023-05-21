@@ -7,8 +7,8 @@ set V=1
 
 set MSVS_VERSION="2017"
 set GYP_MSVS_VERSION="2017"
-set ELECTRON_CACHE="${PWD}/electron/bin"
-set electron_config_cache="${PWD}/electron/bin"
+set ELECTRON_CACHE=%~dp0%electron\bin
+set electron_config_cache=%~dp0%electron\bin
 
 npm run burnthemall
 

@@ -2,7 +2,7 @@
 
 Fix webterm
 Fix tab restore
-Update error page
+Update error page // partially complete
 
 ------------Notes-----------------
 main accent color:
