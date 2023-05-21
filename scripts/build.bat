@@ -16,9 +16,9 @@ rem set NODE_ENV=production
 
 rem npm run dist
 
-rem cd ..\dist
+rem cd ..
 
-rem python3 -m castlabs_evs.vmp sign-pkg out\win-unpacked
+rem python3 -m castlabs_evs.vmp sign-pkg dist\win-unpacked
 
 rem cd ..\scripts
 
