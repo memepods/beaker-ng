@@ -12,14 +12,14 @@ set electron_config_cache=%~dp0%electron\bin
 
 npm run burnthemall
 
-set NODE_ENV=production
+rem set NODE_ENV=production
 
-npm run dist
+rem npm run dist
 
-cd ..\dist
+rem cd ..\dist
 
-python3 -m castlabs_evs.vmp sign-pkg out\win-unpacked
+rem python3 -m castlabs_evs.vmp sign-pkg out\win-unpacked
 
-cd ..\scripts
+rem cd ..\scripts
 
-npm run dist-win
+rem npm run dist-win
