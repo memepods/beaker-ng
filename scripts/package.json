@@ -28,7 +28,7 @@
     "dist-mac": "electron-builder -m -p never --pd out/mac-unpacked",
     "release:postbuild": "gulp postbuild",
     "clean": "npm run extclean && rimraf node_modules",
-    "extclean": "cd ../app && rimraf node_modules && cd bg/dat/converter && rimraf node_modules",
+    "extclean": "cd ../app && rimraf node_modules main.build.js && cd bg/dat/converter && rimraf node_modules",
     "distclean": "rimraf ../dist/*",
     "start": "gulp start",
     "watch": "gulp start-watch"

@@ -37,6 +37,7 @@ const IS_FROM_SOURCE = (process.defaultApp || /node_modules[\\/]electron[\\/]/.t
 const IS_LINUX = !(/^win/.test(process.platform)) && process.platform !== 'darwin'
 const DOT_DESKTOP_FILENAME = 'appimagekit-beaker-browser.desktop'
 const isBrowserUpdatesSupported = !(IS_LINUX || IS_FROM_SOURCE) // linux is temporarily not supported
+export const shell_window_state = path.join(app.getPath('userData'), 'shell-window-state.json')
 
 // how long between scheduled auto updates?
 const SCHEDULED_AUTO_UPDATE_DELAY = 24 * 60 * 60 * 1e3 // once a day
@@ -178,6 +179,20 @@ export const WEBAPI = {
   getDaemonNetworkStatus,
   checkForUpdates,
   restartBrowser,
+  openChromeAccessibilityUrl,
+  openChromeBlobUrl,
+  openChromeDinoUrl,
+  openChromeGpuUrl,
+  openChromeHistogramsUrl,
+  openChromeIndexDbUrl,
+  openChromeMediaUrl,
+  openChromeNetErrorsUrl,
+  openChromeProcessesUrl,
+  openChromeServiceWorkerUrl,
+  openChromeTracingUrl,
+  openChromeUkmUrl,
+  openChromeWebRtcUrl,
+  viewShellState,
 
   getSetting,
   getSettings,
@@ -479,24 +494,27 @@ export async function getDefaultProtocolSettings () {
     // we can just use xdg-mime directly instead
     // see https://github.com/beakerbrowser/beaker/issues/915
     // -prf
-    let [httpHandler, hyperHandler, datHandler] = await Promise.all([
+    let [httpHandler, httpsHandler, hyperHandler, datHandler] = await Promise.all([
       // If there is no default specified, be sure to catch any error
       // from exec and return '' otherwise Promise.all errors out.
       exec('xdg-mime query default "x-scheme-handler/http"').catch(err => ''),
+      exec('xdg-mime query default "x-scheme-handler/https"').catch(err => ''),
       exec('xdg-mime query default "x-scheme-handler/hyper"').catch(err => ''),
       exec('xdg-mime query default "x-scheme-handler/dat"').catch(err => '')
     ])
     if (httpHandler && httpHandler.stdout) httpHandler = httpHandler.stdout
+    if (httpsHandler && httpsHandler.stdout) httpsHandler = httpsHandler.stdout
     if (hyperHandler && hyperHandler.stdout) hyperHandler = hyperHandler.stdout
     if (datHandler && datHandler.stdout) datHandler = datHandler.stdout
     return {
       http: (httpHandler || '').toString().trim() === DOT_DESKTOP_FILENAME,
+      https: (httpsHandler || '').toString().trim() === DOT_DESKTOP_FILENAME,
       hyper: (hyperHandler || '').toString().trim() === DOT_DESKTOP_FILENAME,
       dat: (datHandler || '').toString().trim() === DOT_DESKTOP_FILENAME
     }
   }
 
-  return Promise.resolve(['http', 'hyper', 'dat'].reduce((res, x) => {
+  return Promise.resolve(['http', 'https', 'hyper', 'dat'].reduce((res, x) => {
     res[x] = app.isDefaultProtocolClient(x)
     return res
   }, {}))
@@ -582,6 +600,49 @@ export function restartBrowser () {
     app.relaunch()
     setTimeout(() => app.exit(0), 1e3)
   }
+}
+
+export function openChromeAccessibilityUrl () {
+  openUrl('chrome://accessibility/', {setActive: true});
+}
+export function openChromeBlobUrl () {
+  openUrl('chrome://blob-internals/', {setActive: true});
+}
+export function openChromeDinoUrl () {
+  openUrl('chrome://dino/', {setActive: true});
+}
+export function openChromeGpuUrl () {
+  new BrowserWindow({width: 1024, height: 768, title: "GPU Internals"}).loadURL('chrome://gpu/', {setActive: true, title: "GPU Internals"});
+}
+export function openChromeHistogramsUrl () {
+  openUrl('chrome://histograms/', {setActive: true});
+}
+export function openChromeIndexDbUrl () {
+  openUrl('chrome://indexeddb-internals/', {setActive: true});
+}
+export function openChromeMediaUrl () {
+  openUrl('chrome://media-internals/', {setActive: true});
+}
+export function openChromeNetErrorsUrl () {
+  openUrl('chrome://network-errors/', {setActive: true});
+}
+export function openChromeProcessesUrl () {
+  new BrowserWindow({width: 1024, height: 768, title: "Process Model Internals"}).loadURL('chrome://process-internals/', {setActive: true});
+}
+export function openChromeServiceWorkerUrl () {
+  openUrl('chrome://serviceworker-internals/', {setActive: true});
+}
+export function openChromeTracingUrl () {
+  openUrl('chrome://tracing/', {setActive: true});
+}
+export function openChromeUkmUrl () {
+  openUrl('chrome://ukm/', {setActive: true});
+}
+export function openChromeWebRtcUrl () {
+  openUrl('chrome://webrtc-internals/', {setActive: true});
+}
+export function viewShellState () {
+  new BrowserWindow({width: 1024, height: 768, title: "Shell Window State"}).loadFile(shell_window_state, {setActive: true});
 }
 
 export function getSetting (key) {

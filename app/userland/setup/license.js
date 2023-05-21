@@ -48,6 +48,8 @@ h1 strong {
   <h2>MIT License</h2>
   <p>Copyright (c) 2023 Alex313031
   <br/>
+  Copyright (c) 2019 Paul Frazee
+  <br/>
   Copyright (c) 2018 Blue Link Labs
   </p>
   <p>Permission is hereby granted, free of charge, to any person obtaining a copy

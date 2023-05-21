@@ -65,7 +65,7 @@ class DesktopApp extends LitElement {
       <div id="topright">
         <a href="#" @click=${this.onClickNewHyperdrive}>+ New Hyperdrive</a>
         <a href="beaker://library/" title="Library">My Library</a>
-        <a href="https://thorium.rocks/docs.beakerbrowser.com/" title="Help">Help</a>
+        <a href="https://beaker-browser.gitbook.io/" title="Help">Help</a>
       </div>
       ${this.renderSupportBanner()}
       <main>

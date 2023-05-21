@@ -27,6 +27,8 @@ class DevicesView extends LitElement {
   // =
 
   render () {
+  document.title = "Settings - Devices";
+
     return html`
       <link rel="stylesheet" href="beaker://assets/font-awesome.css">
       <div class="section">

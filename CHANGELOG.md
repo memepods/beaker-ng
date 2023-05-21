@@ -5,6 +5,7 @@ __1.2.3__
  - Fixed package-lock hyperspace issue (pinned sodium)
  - Update @beaker/dat-serve-resolve-path to my new fork > https://github.com/Alex313031/dat-serve-resolve-path
  - Update main icon/logo
+ - Add new beaker internals page in settings, showing chrome:// URLs and debug stuff
  - Update toolbar style and highlight CSS colors
  - Update sqlite3 to 5.1.4
  - Update more npm deps and lock them to specific versions to prevent things like the \

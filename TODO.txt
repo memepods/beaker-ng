@@ -1,8 +1,8 @@
 ----TODO----
 
 Fix webterm
-Fix app package-lock.json
 Fix tab restore
+Update error page
 
 ------------Notes-----------------
 main accent color:

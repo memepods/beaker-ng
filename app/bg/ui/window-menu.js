@@ -689,6 +689,7 @@ export function buildWindowMenu (opts = {}) {
           if (tab) tab.toggleLiveReloading()
         }
       },
+      { type: 'separator' },
       {
         id: 'toggleShellWindow',
         label: 'Reload Shell Window',
@@ -707,7 +708,15 @@ export function buildWindowMenu (opts = {}) {
         }
       },
       {
-        id: 'toggleChromeGPU',
+        id: 'beakerInternals',
+        label: 'Open Beaker Internals',
+        accelerator: 'CmdOrCtrl+Shift+Alt+B',
+        click: function (item) {
+          if (win) tabManager.create(win, 'beaker://settings/?view=internals', {setActive: true})
+        }
+      },
+      {
+        id: 'openChromeGPU',
         label: 'Open chrome://gpu',
         enabled: !noWindows,
         accelerator: 'CmdorCtrl+Alt+G',

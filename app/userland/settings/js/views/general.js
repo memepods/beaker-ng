@@ -53,6 +53,8 @@ class GeneralSettingsView extends LitElement {
   // =
 
   render () {
+  document.title = "Settings - General";
+
     if (!this.browserInfo) return html``
     return html`
       <link rel="stylesheet" href="beaker://assets/font-awesome.css">
@@ -415,21 +417,21 @@ class GeneralSettingsView extends LitElement {
         <p>Browser theme:</p>
 
         <div class="radio-item">
-          <input type="radio" id="browserTheme3" name="browser-theme"
-                 value="dark"
-                 ?checked=${this.settings.browser_theme === 'dark'}
-                 @change=${this.onBrowserThemeChange} />
-          <label for="browserTheme3">
-            Dark mode
-          </label>
-        </div>
-        <div class="radio-item">
           <input type="radio" id="browserTheme2" name="browser-theme"
                  value="light"
                  ?checked=${this.settings.browser_theme === 'light'}
                  @change=${this.onBrowserThemeChange} />
           <label for="browserTheme2">
             Light mode
+          </label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="browserTheme3" name="browser-theme"
+                 value="dark"
+                 ?checked=${this.settings.browser_theme === 'dark'}
+                 @change=${this.onBrowserThemeChange} />
+          <label for="browserTheme3">
+            Dark mode
           </label>
         </div>
         <div class="radio-item">

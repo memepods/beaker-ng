@@ -3,7 +3,7 @@ Beaker Browser
 
 ![logo.png](build/icons/256x256.png)
 
-Beaker-ng is an experimental peer-to-peer Web browser. It adds new APIs for building hostless applications while remaining compatible with the rest of the Web. It can use the dat:// and hyper:// URL schemes/protocols. \
+Beaker-ng is an experimental peer-to-peer Web browser based on [Electron](https://www.electronjs.org/). It adds new APIs for building hostless applications while remaining compatible with the rest of the Web. It can use the dat:// and hyper:// URL schemes/protocols. \
 It is a continued fork of [Beaker](https://github.com/beakerbrowser/beaker).
 
 [Visit the website.](https://beaker-browser.gitbook.io/)

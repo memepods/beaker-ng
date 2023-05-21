@@ -113,6 +113,7 @@ header {
 
 .pin:hover {
   text-decoration: none;
+  top: -2px;
 }
 
 .pin .thumb {

@@ -512,7 +512,7 @@ ${spinnerCSS}
   top: 6px;
   right: 10px;
   font-size: 12px;
-  color: rgba(0,0,0,.6);
+  color: var(--text-color--tab--close);
   background: var(--bg-color--background);
   padding: 2px 0 2px 4px;
 }
@@ -565,6 +565,7 @@ ${spinnerCSS}
 .tab-close:hover,
 .tab-close:active  {
   background: var(--bg-color--tab-close--hover);
+  height: 15px;
 }
 
 .tab:not(.current):hover,

@@ -48,6 +48,8 @@ export const setup = async function (opts) {
     search_engines: [
       {name: 'Google', url: 'https://www.google.com/search', selected: true},
       {name: 'DuckDuckGo', url: 'https://www.duckduckgo.com/'},
+      {name: 'Ecosia', url: 'https://www.ecosia.org/search'},
+      {name: 'Brave', url: 'https://search.brave.com/search'},
       {name: 'Beaker', url: 'beaker://desktop/'}
     ],
     adblock_lists: [

@@ -54,6 +54,17 @@ body {
 img {
   max-width: 100%;
   height: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+}
+
+img:hover {
+  border: 1px solid #5746FF;
+}
+
+img:active {
+  border: 1px solid #797979;
 }
 
 .center {
