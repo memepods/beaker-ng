@@ -61,7 +61,7 @@ export async function create (parentWindow, tab, params) {
       defaultEncoding: 'utf-8',
       preload: path.join(__dirname, 'fg', 'perm-prompt', 'index.build.js'),
       contextIsolation: false,
-      worldSafeExecuteJavaScript: false
+      worldSafeExecuteJavaScript: true
     }
   })
   parentWindow.addBrowserView(view)

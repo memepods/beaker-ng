@@ -66,7 +66,7 @@ export async function create (webContents, promptName, params = {}) {
       defaultEncoding: 'utf-8',
       preload: path.join(__dirname, 'fg', 'prompts', 'index.build.js'),
       contextIsolation: false,
-      worldSafeExecuteJavaScript: false
+      worldSafeExecuteJavaScript: true
     }
   })
   view.promptName = promptName

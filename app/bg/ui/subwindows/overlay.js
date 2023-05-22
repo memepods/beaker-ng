@@ -23,7 +23,7 @@ export function setup (parentWindow) {
     webPreferences: {
       defaultEncoding: 'utf-8',
       contextIsolation: false,
-      worldSafeExecuteJavaScript: false
+      worldSafeExecuteJavaScript: true
     }
   })
   view.webContents.loadFile(path.join(__dirname, 'fg', 'overlay', 'index.html'))

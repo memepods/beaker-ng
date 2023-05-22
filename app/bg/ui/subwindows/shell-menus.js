@@ -37,7 +37,7 @@ export function setup (parentWindow) {
       defaultEncoding: 'utf-8',
       preload: path.join(__dirname, 'fg', 'shell-menus', 'index.build.js'),
       contextIsolation: false,
-      worldSafeExecuteJavaScript: false
+      worldSafeExecuteJavaScript: true
     }
   })
   view.webContents.on('console-message', (e, level, message) => {

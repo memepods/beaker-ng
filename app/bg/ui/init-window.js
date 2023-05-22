@@ -30,7 +30,7 @@ export function open ({isShutdown} = {isShutdown: false}) {
       contextIsolation: true,
       experimentalFeatures: true,
       devTools: true,
-      worldSafeExecuteJavaScript: false,
+      worldSafeExecuteJavaScript: true,
       webviewTag: false,
       sandbox: true,
       webSecurity: true,

@@ -67,6 +67,8 @@ export async function setup () {
   var customStartPage = await settingsDb.get('custom_start_page')
   var isTestDriverActive = !!getEnvVar('BEAKER_TEST_DRIVER')
   var isOpenUrlEnvVar = !!getEnvVar('BEAKER_OPEN_URL')
+  // Temporary workaround for tab restoration
+  var runBackground = await settingsDb.get('run_background')
 
   // set up app events
   app.on('activate', () => {
@@ -75,13 +77,15 @@ export async function setup () {
     else app.on('ready', ensureOneWindowExists)
   })
   ipcMain.on('new-window', () => createShellWindow())
-  app.on('custom-window-all-closed', async () => {
+  app.on('custom-window-all-closed', () => {
     if (process.platform !== 'darwin') {
       // Temporary fix for tab restoration not working. See tabmanager and settings history to try to fix
       //var runBackground = await settingsDb.get('run_background')
-      //if (runBackground != 1) {
+      if (runBackground != 1) {
+        //sessionWatcher.stopRecording()
+        //sessionWatcher.exit()
         app.quit()
-      //}
+      }
     }
   })
 
@@ -211,7 +215,7 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
       contextIsolation: false,
       experimentalFeatures: true,
       devTools: true,
-      worldSafeExecuteJavaScript: false,
+      worldSafeExecuteJavaScript: true,
       webviewTag: false,
       sandbox: true,
       plugins: true,

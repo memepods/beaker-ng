@@ -1406,10 +1406,10 @@ function emitUpdateState (tab) {
   var win = getTopWindow(tab.browserWindow)
   var index = typeof tab === 'number' ? tab : getAll(win).indexOf(tab)
   // Temporary fix
-  //if (index === -1) {
+  if (index === -1) {
     //console.warn('WARNING: attempted to update state of a tab not on the window')
-    //return
-  //}
+    return
+  }
   emit(win, 'update-state', {index, state: tab.state})
   win.emit('custom-pages-updated', takeSnapshot(win))
 }

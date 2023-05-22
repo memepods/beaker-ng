@@ -86,7 +86,7 @@ export async function create (webContents, modalName, params = {}) {
     webPreferences: {
       defaultEncoding: 'utf-8',
       contextIsolation: false,
-      worldSafeExecuteJavaScript: false,
+      worldSafeExecuteJavaScript: true,
       preload: path.join(__dirname, 'fg', 'modals', 'index.build.js')
     }
   })

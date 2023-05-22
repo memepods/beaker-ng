@@ -30,7 +30,7 @@ export function setup (parentWindow) {
     webPreferences: {
       defaultEncoding: 'utf-8',
       contextIsolation: false,
-      worldSafeExecuteJavaScript: false,
+      worldSafeExecuteJavaScript: true,
       preload: path.join(__dirname, 'fg', 'location-bar', 'index.build.js')
     }
   })
