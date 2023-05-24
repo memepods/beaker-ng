@@ -1,10 +1,13 @@
 ## Changelog since I forked Beaker
 
 __1.2.4__
- - Now using my custom AVX compiler optimized Electron builds > 
+ - Now using my custom AVX compiler optimized Electron builds > https://github.com/Alex313031/electron-13.6.9
  - Added new privacy section with checkboxes for Do Not Track \
    and Global Privacy Control headers
  - "Seach with Google" now focuses the opened tab, similar to Chromium
+ - [Electron Log](https://www.npmjs.com/package/electron-log) now logs URL navigations
+ - Added Platform to about page version entries
+ - Added background image(s) for the new tab page
 
 __1.2.3__
  - Added https://beaker-browser.gitbook.io/
