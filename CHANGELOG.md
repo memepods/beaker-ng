@@ -1,5 +1,11 @@
 ## Changelog since I forked Beaker
 
+__1.2.4__
+ - Now using my custom AVX compiler optimized Electron builds > 
+ - Added new privacy section with checkboxes for Do Not Track \
+   and Global Privacy Control headers
+ - "Seach with Google" now focuses the opened tab, similar to Chromium
+
 __1.2.3__
  - Added https://beaker-browser.gitbook.io/
  - Fixed package-lock hyperspace issue (pinned sodium)
