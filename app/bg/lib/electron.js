@@ -34,7 +34,7 @@ export async function spawnAndExecuteJs (url, js) {
       devTools: true,
       defaultEncoding: 'utf-8',
       nativeWindowOpen: true,
-      nodeIntegration: false,
+      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       scrollBounce: true,
       navigateOnDragDrop: true,
       enableRemoteModule: false,

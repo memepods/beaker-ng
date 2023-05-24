@@ -153,8 +153,9 @@ app.on('ready', async function () {
     homePath: app.getPath('home')
   }
 
+  console.log('Welcome to Beaker Browser!')
   await logger.setup(join(commonOpts.userDataPath, 'beaker.log'))
-  log.info('Welcome to Beaker')
+  log.info('Starting Beaker')
   beakerProtocol.register(protocol)
   webapis.setup()
   initWindow.open()

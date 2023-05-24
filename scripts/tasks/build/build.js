@@ -22,7 +22,7 @@ var srcDir = projectDir.cwd('../app');
 
 function burnthemallMaybeTask () {
   const beakerPackageJson = projectDir.read('package.json', 'json')
-  const electronVer = 'git+https://github.com/castlabs/electron-releases.git#v13.6.9-wvvmp'
+  const electronVer = 'git+https://github.com/Alex313031/electron-releases-13.git#7c26184'
   if (!beakerPackageJson || !electronVer) return Promise.resolve(true)
 
   // is the installed version of electron different than the required one?
