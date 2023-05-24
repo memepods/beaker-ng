@@ -11,8 +11,8 @@ import css from '../css/main.css.js'
 import 'beaker://app-stdlib/js/com/img-fallbacks.js'
 
 const VERSION_ID = (major, minor, patch, pre) => major * 1e9 + minor * 1e6 + patch * 1e3 + pre
-const CURRENT_VERSION = VERSION_ID(1, 2, 3, 0)
-const RELEASE = { label: '1.2.3', url: 'https://github.com/Alex313031/beaker-ng/blob/master/CHANGELOG.md' }
+const CURRENT_VERSION = VERSION_ID(1, 2, 4, 0)
+const RELEASE = { label: '1.2.4', url: 'https://github.com/Alex313031/beaker-ng/blob/master/CHANGELOG.md' }
 
 class DesktopApp extends LitElement {
   static get properties () {
@@ -65,7 +65,7 @@ class DesktopApp extends LitElement {
       <div id="topright">
         <a href="#" @click=${this.onClickNewHyperdrive}>+ New Hyperdrive</a>
         <a href="beaker://library/" title="Library">My Library</a>
-        <a href="https://beaker-browser.gitbook.io/" title="Help">Help</a>
+        <a class="last" href="https://beaker-browser.gitbook.io/" title="Help">Help</a>
       </div>
       ${this.renderSupportBanner()}
       <main>
@@ -91,7 +91,7 @@ class DesktopApp extends LitElement {
     // }
     return html`
       <div class="release-notice">
-        <a href=${RELEASE.url} class="view-release-notes" target="_blank">
+        <a href=${RELEASE.url} class="view-release-notes ntp" target="_blank">
           <span class="fas fa-fw fa-rocket"></span>
           <strong>Welcome to Beaker ${RELEASE.label}!</strong>
           Click here to see what's new.

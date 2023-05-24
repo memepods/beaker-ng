@@ -1,4 +1,4 @@
-import { app, BrowserView, nativeTheme } from 'electron'
+import { app, BrowserView, webFrame, nativeTheme } from 'electron'
 import errorPage from '../../lib/error-page'
 import path from 'path'
 import { promises as fs } from 'fs'
@@ -20,6 +20,7 @@ import * as folderSyncDb from '../../dbs/folder-sync'
 import * as filesystem from '../../filesystem/index'
 import * as bookmarks from '../../filesystem/bookmarks'
 import hyper from '../../hyper/index'
+import * as electronLog from 'electron-log'
 
 const ERR_ABORTED = -3
 const ERR_CONNECTION_REFUSED = -102
@@ -734,6 +735,8 @@ export class Pane extends EventEmitter {
       this.wasDriveTimeout = true
     }
 
+    // Log to console navigation changes
+    electronLog.info('Navigated to URL: ' + url)
     // emit
     this.emitUpdateState()
   }

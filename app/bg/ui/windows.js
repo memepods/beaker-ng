@@ -1,4 +1,4 @@
-import {app, BrowserWindow, ipcMain, webContents, dialog, nativeTheme} from 'electron'
+import {app, BrowserWindow, ipcMain, webContents, dialog, nativeTheme, webFrame} from 'electron'
 import {defaultBrowsingSessionState, defaultWindowState} from './default-state'
 import SessionWatcher, { getLastRecordedPositioning } from './session-watcher'
 import jetpack from 'fs-jetpack'
@@ -52,7 +52,7 @@ var focusedDevtoolsHost
 var hasFirstWindowLoaded = false
 var isTabSwitcherActive = {} // map of {[window.id] => Boolean}
 var windowAddedSettings = {} // map of {[window.id] => Object}
-const BROWSING_SESSION_PATH = './shell-window-state.json'
+export const BROWSING_SESSION_PATH = './shell-window-state.json'
 export const ICON_PATH = path.join(__dirname, (process.platform === 'win32') ? './assets/img/logo.ico' : './assets/img/logo.png')
 export const PRELOAD_PATH = path.join(__dirname, 'fg', 'shell-window', 'index.build.js')
 
@@ -77,11 +77,11 @@ export async function setup () {
     else app.on('ready', ensureOneWindowExists)
   })
   ipcMain.on('new-window', () => createShellWindow())
-  app.on('custom-window-all-closed', () => {
+  app.on('custom-window-all-closed', async () => {
     if (process.platform !== 'darwin') {
       // Temporary fix for tab restoration not working. See tabmanager and settings history to try to fix
       //var runBackground = await settingsDb.get('run_background')
-      if (runBackground != 1) {
+      if (runBackground !== 1) {
         //sessionWatcher.stopRecording()
         //sessionWatcher.exit()
         app.quit()
@@ -187,7 +187,7 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
   }
   // create window
   let state = ensureVisibleOnSomeDisplay(Object.assign({}, defaultWindowState(), lastWindowPositioning(), windowState))
-  var { x, y, width, height, minWidth, minHeight } = state
+  var { x, y, width, height } = state
   var frameSettings = {
     titleBarStyle: 'hiddenInset',
     trafficLightPosition: {x: 12, y: 20},
@@ -203,8 +203,8 @@ export function createShellWindow (windowState, createOpts = {dontInitPages: fal
     alwaysOnTop: state.isAlwaysOnTop,
     x,
     y,
-    width: 1024,
-    height: 768,
+    width,
+    height,
     minWidth: 400,
     minHeight: 300,
     backgroundColor: '#fff',

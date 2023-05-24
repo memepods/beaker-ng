@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 import sqlite3 from 'sqlite3'
 import path from 'path'
+import fs from 'fs'
 import { cbPromise } from '../../lib/functions'
 import { setupSqliteDB } from '../lib/db'
 import { getEnvVar } from '../lib/env'
@@ -43,6 +44,8 @@ export const setup = async function (opts) {
     default_zoom: 0,
     browser_theme: 'dark',
     analytics_enabled: 0,
+    do_not_track: 1,
+    global_privacy_control: 1,
     extended_network_index: 'default',
     extended_network_index_url: '',
     search_engines: [

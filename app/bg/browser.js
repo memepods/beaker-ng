@@ -1,4 +1,4 @@
-import { app, dialog, BrowserWindow, webContents, ipcMain, shell, Menu, screen, session, nativeImage } from 'electron'
+import { app, dialog, BrowserWindow, webContents, ipcMain, shell, Menu, screen, session, nativeImage, webFrame } from 'electron'
 import { autoUpdater } from 'electron-updater'
 import os from 'os'
 import path from 'path'
@@ -121,6 +121,23 @@ export async function setup () {
     }
   })
 
+  // DoNotTrack Settings
+  var doNotTrack = await settingsDb.get('do_not_track')
+  var globalPrivacyControl = await settingsDb.get('global_privacy_control')
+  session.defaultSession.webRequest.onBeforeSendHeaders((details, cb) => {
+    if (doNotTrack == 1) {
+      details.requestHeaders['DNT'] = '1';
+    } else {
+      details.requestHeaders['DNT'] = null;
+    }
+    if (globalPrivacyControl == 1) {
+      details.requestHeaders['Sec-GPC'] = '1';
+    } else {
+      details.requestHeaders['Sec-GPC'] = null;
+    }
+    cb({ requestHeaders: details.requestHeaders });
+  })
+
   // request blocking for security purposes
   session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
     if (details.url.startsWith('asset:') || details.url.startsWith('beaker:')) {
@@ -170,6 +187,9 @@ export async function setup () {
     })
     cb(request.errorCode)
   })
+  
+  console.log('Do Not Track Setting:', doNotTrack)
+  console.log('GPC Setting:', globalPrivacyControl)
 }
 
 export const WEBAPI = {

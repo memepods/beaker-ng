@@ -9,6 +9,7 @@ import './views/fs-audit-log.js'
 import './views/network.js'
 import './views/devices.js'
 import './views/internals.js'
+import './views/privacy.js'
 import './views/info.js'
 import './views/daemon-log.js'
 
@@ -72,6 +73,7 @@ class SettingsApp extends LitElement {
       ${item('devices', 'fas fa-desktop', 'Devices')}
       ${''/*DISABLEDitem('daemon-log', 'fas fa-clipboard-list', 'Daemon Log')*/}
       <hr/>
+      ${item('privacy', 'fas fa-shield-alt', 'Privacy')}
       ${item('internals', 'fas fa-code', 'Internals')}
       ${item('info', 'fas fa-info-circle', 'About')}
       <hr/>
@@ -92,6 +94,8 @@ class SettingsApp extends LitElement {
         return html`<network-view loadable></network-view>`
       case 'devices':
           return html`<devices-view loadable></devices-view>`
+      case 'privacy':
+          return html`<privacy-settings-view loadable></privacy-settings-view>`
       case 'internals':
           return html`<internals-view loadable></internals-view>`
       case 'info':

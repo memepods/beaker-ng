@@ -287,7 +287,7 @@ class GeneralSettingsView extends LitElement {
                  ?checked=${this.settings.run_background == 1}
                  @change=${this.onRunBackgroundToggle} />
           <label for="runBackground">
-            Let Beaker run in the background
+            Let Beaker run in the background (requires browser restart to take effect)
           </label>
         </div>
       </div>
