@@ -701,11 +701,21 @@ export function buildWindowMenu (opts = {}) {
       },
       {
         id: 'toggleShellWindowDevTools',
-        label: 'Open Electron DevTools',
+        label: 'Open Shell Window DevTools',
         enabled: !noWindows,
         accelerator: 'F12',
         click: function () {
           win.webContents.openDevTools({mode: 'detach'})
+        }
+      },
+      {
+        id: 'openElectronDevTools',
+        label: 'Open Electron DevTools',
+        enabled: !noWindows,
+        accelerator: 'CmdorCtrl+Shift+F12',
+        click: function () {
+          var topwin = BrowserWindow.getFocusedWindow()
+          topwin.openDevTools({mode: 'detach'})
         }
       },
       {

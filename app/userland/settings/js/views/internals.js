@@ -39,6 +39,7 @@ class InternalsView extends LitElement {
         ${this.renderChromeURLs()}
         <button class="btn btn-default" @click=${this.onClickViewBeakerLog}>View beaker.log</button>
         <button class="btn btn-default" @click=${this.onClickViewShellState}>View shell-window-state.json</button>
+        <button class="btn btn-default" @click=${this.onClickOpenProcessManager}>Launch Process Manager</button>
       </div>
     `
   }
@@ -73,6 +74,10 @@ class InternalsView extends LitElement {
   }
   onClickViewShellState () {
 	beaker.browser.viewShellState()
+  }
+  // Eventually replace with proper task manager
+  onClickOpenProcessManager () {
+	beaker.browser.openChromeProcessesUrl()
   }
   onClickChromeAccessibilityUrl () {
     beaker.browser.openChromeAccessibilityUrl()

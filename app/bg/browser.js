@@ -668,7 +668,7 @@ export function viewShellState () {
   electronLog.info('Opened shell-window-state.json');
 }
 export function viewBeakerLog () {
-  new BrowserWindow({width: 1024, height: 768, title: "beaker.log"}).loadFile(raw_beaker_log, {setActive: true});
+  new BrowserWindow({width: 1024, height: 768, title: "Beaker Log"}).loadFile(raw_beaker_log, {setActive: true});
   electronLog.info('Opened beaker.log');
 }
 
