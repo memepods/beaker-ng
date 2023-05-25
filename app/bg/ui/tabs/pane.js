@@ -795,10 +795,10 @@ export class Pane extends EventEmitter {
     // update state
     var isInsecureResponse = IS_CODE_INSECURE_RESPONSE(errorCode)
     this.loadError = {isInsecureResponse, errorCode, errorDescription, validatedURL}
+    // Log navigation errors
     const loadErrorCodeLog = errorCode
     const loadErrorDescLog = errorDescription
     const loadErrorUrlLog = validatedURL
-    // Log navigtation errors
     electronLog.error('Failed to load URL: %c' + validatedURL, 'color: red', '[ Error Code: %c' + loadErrorCodeLog, 'color: yellow', '| %c' + loadErrorDescLog, 'color: yellow', ']')
     this.emitUpdateState()
 
