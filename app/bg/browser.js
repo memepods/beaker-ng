@@ -29,6 +29,7 @@ import * as bookmarks from './filesystem/bookmarks'
 import { getDriveIdent } from './filesystem/index'
 import * as wcTrust from './wc-trust'
 import { spawnAndExecuteJs } from './lib/electron'
+import * as electronLog from 'electron-log'
 
 // constants
 // =
@@ -38,6 +39,7 @@ const IS_LINUX = !(/^win/.test(process.platform)) && process.platform !== 'darwi
 const DOT_DESKTOP_FILENAME = 'appimagekit-beaker-browser.desktop'
 const isBrowserUpdatesSupported = !(IS_LINUX || IS_FROM_SOURCE) // linux is temporarily not supported
 export const shell_window_state = path.join(app.getPath('userData'), 'shell-window-state.json')
+export const raw_beaker_log = path.join(app.getPath('userData'), 'beaker.log')
 
 // how long between scheduled auto updates?
 const SCHEDULED_AUTO_UPDATE_DELAY = 24 * 60 * 60 * 1e3 // once a day
@@ -187,9 +189,6 @@ export async function setup () {
     })
     cb(request.errorCode)
   })
-  
-  console.log('Do Not Track Setting:', doNotTrack)
-  console.log('GPC Setting:', globalPrivacyControl)
 }
 
 export const WEBAPI = {
@@ -213,6 +212,7 @@ export const WEBAPI = {
   openChromeUkmUrl,
   openChromeWebRtcUrl,
   viewShellState,
+  viewBeakerLog,
 
   getSetting,
   getSettings,
@@ -633,6 +633,7 @@ export function openChromeDinoUrl () {
 }
 export function openChromeGpuUrl () {
   new BrowserWindow({width: 1024, height: 768, title: "GPU Internals"}).loadURL('chrome://gpu/', {setActive: true, title: "GPU Internals"});
+  logger.info('Opened chrome://gpu');
 }
 export function openChromeHistogramsUrl () {
   openUrl('chrome://histograms/', {setActive: true});
@@ -648,6 +649,7 @@ export function openChromeNetErrorsUrl () {
 }
 export function openChromeProcessesUrl () {
   new BrowserWindow({width: 1024, height: 768, title: "Process Model Internals"}).loadURL('chrome://process-internals/', {setActive: true});
+  logger.info('Opened Process Internals!');
 }
 export function openChromeServiceWorkerUrl () {
   openUrl('chrome://serviceworker-internals/', {setActive: true});
@@ -663,6 +665,11 @@ export function openChromeWebRtcUrl () {
 }
 export function viewShellState () {
   new BrowserWindow({width: 1024, height: 768, title: "Shell Window State"}).loadFile(shell_window_state, {setActive: true});
+  electronLog.info('Opened shell-window-state.json');
+}
+export function viewBeakerLog () {
+  new BrowserWindow({width: 1024, height: 768, title: "beaker.log"}).loadFile(raw_beaker_log, {setActive: true});
+  electronLog.info('Opened beaker.log');
 }
 
 export function getSetting (key) {
@@ -679,6 +686,7 @@ export function setSetting (key, value) {
 
 export function updateAdblocker () {
   return adblocker.setup()
+  electronLog.info('Adblocker is now active');
 }
 
 export async function migrate08to09 () {

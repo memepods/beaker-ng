@@ -67,7 +67,7 @@ class PrivacySettingsView extends LitElement {
           </div>
         </div>
       </div>
-      &nbsp;Note: Both of these settings require a browser restart to take effect.
+      <em>&nbsp;<b>Note:</b> Both of these settings require a browser restart to take effect.</em>
     `
   }
 

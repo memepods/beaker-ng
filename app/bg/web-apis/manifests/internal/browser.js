@@ -19,6 +19,7 @@ export default {
   openChromeUkmUrl: 'sync',
   openChromeWebRtcUrl: 'sync',
   viewShellState: 'sync',
+  viewBeakerLog: 'sync',
 
   getSettings: 'promise',
   getSetting: 'promise',

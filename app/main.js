@@ -41,6 +41,8 @@ import * as datProtocol from './bg/protocols/dat'
 
 import * as testDriver from './bg/test-driver'
 import * as openURL from './bg/open-url'
+import * as settingsDb from './bg/dbs/settings'
+import * as electronLog from 'electron-log'
 
 // setup
 // =
@@ -214,6 +216,11 @@ app.on('ready', async function () {
   dbs.settings.on('set:browser_theme', v => {
     nativeTheme.themeSource = v
   })
+
+  var doNotTrack = await settingsDb.get('do_not_track')
+  var globalPrivacyControl = await settingsDb.get('global_privacy_control')  
+  electronLog.info('Do Not Track Setting: [ bool =', doNotTrack, ']')
+  electronLog.info('GPC Setting: [ bool =', globalPrivacyControl, ']')
 })
 
 app.on('window-all-closed', () => {

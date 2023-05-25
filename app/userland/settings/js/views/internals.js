@@ -37,7 +37,7 @@ class InternalsView extends LitElement {
         <h2>List of internal Chromium URLs</h2>
         <h3>These URLs are the chrome:// URLs exposed by Electron</h3>
         ${this.renderChromeURLs()}
-        <button class="btn btn-default" @click=${this.onClickViewBeakerLogs}>View Beaker Logs</button>
+        <button class="btn btn-default" @click=${this.onClickViewBeakerLog}>View beaker.log</button>
         <button class="btn btn-default" @click=${this.onClickViewShellState}>View shell-window-state.json</button>
       </div>
     `
@@ -68,8 +68,8 @@ class InternalsView extends LitElement {
   // events
   // =
 
-  onClickViewBeakerLogs () {
-    beaker.browser.openUrl('beaker://settings/?view=general-logs', {setActive: true})
+  onClickViewBeakerLog () {
+    beaker.browser.viewBeakerLog()
   }
   onClickViewShellState () {
 	beaker.browser.viewShellState()

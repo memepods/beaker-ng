@@ -26,6 +26,7 @@ import { getEnvVar } from '../lib/env'
 import _pick from 'lodash.pick'
 import * as logLib from '../logger'
 const logger = logLib.child({category: 'browser'})
+import * as electronLog from 'electron-log'
 
 const IS_WIN = process.platform === 'win32'
 const IS_LINUX = process.platform === 'linux'

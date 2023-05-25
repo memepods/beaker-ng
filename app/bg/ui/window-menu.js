@@ -8,6 +8,7 @@ import * as shellMenus from './subwindows/shell-menus'
 import { download } from './downloads'
 import hyper from '../hyper/index'
 import * as settingsDb from '../dbs/settings'
+import * as electronLog from 'electron-log'
 
 // globals
 // =
@@ -723,6 +724,7 @@ export function buildWindowMenu (opts = {}) {
         click: function () {
           const gpuWindow = new BrowserWindow({width: 900, height: 700, title: "GPU Internals"});
           gpuWindow.loadURL('chrome://gpu');
+          electronLog.info('Opened chrome://gpu');
         }
       }
     ]
@@ -904,6 +906,7 @@ export function buildWindowMenu (opts = {}) {
         click: function (item) {
           const humansWindow = new BrowserWindow({width: 532, height: 628, title: "Humans.txt"});
             humansWindow.loadFile('./humans.txt');
+            electronLog.info('Opened humans.txt!');
         }
       }
     ]
