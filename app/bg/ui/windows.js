@@ -562,7 +562,7 @@ function onEscape (win) {
 function globalTabSwitcherKeyHandler (e, input) {
   var win = getActiveWindow()
 
-  if (input.type === 'keyDown' && input.key === 'Tab' && input.control) {
+  if (input.type === 'keyDown' && input.key === 'Meta' && input.control) {
     if (!isTabSwitcherActive[win.id]) {
       isTabSwitcherActive[win.id] = true
       tabSwitcherSubwindow.show(win)
@@ -574,6 +574,11 @@ function globalTabSwitcherKeyHandler (e, input) {
       }
     }
   } else if (isTabSwitcherActive[win.id] && input.type === 'keyUp' && input.key === 'Control') {
+    isTabSwitcherActive[win.id] = false
+    tabSwitcherSubwindow.hide(win)
+  }
+
+  if (isTabSwitcherActive[win.id] && input.type === 'mouseDown') {
     isTabSwitcherActive[win.id] = false
     tabSwitcherSubwindow.hide(win)
   }

@@ -2,6 +2,7 @@ import * as path from 'path'
 import { BrowserWindow } from 'electron'
 import { ICON_PATH } from './windows'
 import * as logger from '../logger'
+import * as electronLog from 'electron-log'
 
 // globals
 // =
@@ -13,15 +14,15 @@ var initWindow
 
 export function open ({isShutdown} = {isShutdown: false}) {
   initWindow = new BrowserWindow({
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     fullscreenable: false,
-    resizable: false,
+    resizable: true,
     maximizable: false,
     alwaysOnTop: false,
     fullscreenWindowTitle: true,
     frame: false,
-    width: 400,
-    height: 300,
+    width: 500,
+    height: 420,
     backgroundColor: '#fff',
     webPreferences: {
       preload: path.join(__dirname, 'fg', 'webview-preload', 'index.build.js'),
@@ -40,12 +41,18 @@ export function open ({isShutdown} = {isShutdown: false}) {
     icon: ICON_PATH,
     show: true
   })
-  initWindow.loadURL(`beaker://init/${isShutdown ? 'shutdown.html' : ''}`)
+  initWindow.loadURL(`beaker://init/${isShutdown ? 'shutdown.html' : 'index.html'}`)
 }
 
 export function close () {
   if (initWindow) {
-    initWindow.close()
-    initWindow = undefined
+    if (!process.env.BEAKER_DEV) {
+      initWindow.close()
+      initWindow = undefined
+      electronLog.info('init-window completed')
+    } else {
+    electronLog.info('init-window completed')
+    electronLog.warn('init-window kept open because env variable BEAKER_DEV was set')
+    }
   }
 }

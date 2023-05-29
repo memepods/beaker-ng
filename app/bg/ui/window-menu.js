@@ -806,7 +806,7 @@ export function buildWindowMenu (opts = {}) {
         id: 'nextTab',
         label: 'Next Tab',
         enabled: !noWindows,
-        accelerator: (process.platform === 'darwin') ? 'Alt+CmdOrCtrl+Right' : 'CmdOrCtrl+PageDown',
+        accelerator: (process.platform === 'darwin') ? 'Alt+CmdOrCtrl+Right' : 'CmdOrCtrl+Tab',
         click: function (item) {
           if (win) tabManager.changeActiveBy(win, 1)
         }
@@ -815,7 +815,7 @@ export function buildWindowMenu (opts = {}) {
         id: 'previousTab',
         label: 'Previous Tab',
         enabled: !noWindows,
-        accelerator: (process.platform === 'darwin') ? 'Alt+CmdOrCtrl+Left' : 'CmdOrCtrl+PageUp',
+        accelerator: (process.platform === 'darwin') ? 'Alt+CmdOrCtrl+Left' : 'CmdOrCtrl+Shift+Tab',
         click: function (item) {
           if (win) tabManager.changeActiveBy(win, -1)
         }
@@ -832,10 +832,11 @@ export function buildWindowMenu (opts = {}) {
           gotoTabShortcut(6),
           gotoTabShortcut(7),
           gotoTabShortcut(8),
+          gotoTabShortcut(9),
           {
             label: `Last Tab`,
             enabled: !noWindows,
-            accelerator: `CmdOrCtrl+9`,
+            accelerator: `CmdOrCtrl+0`,
             click: function (item) {
               if (win) tabManager.setActive(win, tabManager.getAll(win).slice(-1)[0])
             }
