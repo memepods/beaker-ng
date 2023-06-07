@@ -87,7 +87,7 @@ class ShellWindowTabs extends LitElement {
             @dragleave=${e => this.onDragleaveTab(e, this.tabsState.length)}
             @drop=${e => this.onDropTab(e, this.tabsState.length)}
           >
-            <div class="tab tab-add-btn" @click=${this.onClickNew} title="Open new tab">
+            <div class="tab tab-add-btn add-btn" @click=${this.onClickNew} title="Open new tab">
               <span class="plus">+</span>
             </div>
           </div>
@@ -399,7 +399,7 @@ ${spinnerCSS}
 .tabs {
   display: flex;
   padding: 0 18px 0 0;
-  border-bottom: 1px solid var(--border-color--tab);
+  border-bottom: 1px solid var(--highlight-color--tab--current);
   height: 33px;
 }
 
@@ -456,7 +456,7 @@ ${spinnerCSS}
   min-width: 0; /* HACK: https://stackoverflow.com/questions/38223879/white-space-nowrap-breaks-flexbox-layout */
   background: transparent;
   transition: background 0.3s;
-  border-left: 1px solid var(--border-color--tab);
+  border-left: 1px solid var(--highlight-color--tab--current);
 }
 
 .tab.pinned {
@@ -623,6 +623,10 @@ ${spinnerCSS}
   width: 40px;
 }
 
+.add-btn:active {
+  background: #505050 !important;
+}
+
 .tab-add-btn .plus {
   position: absolute;
   top: 0;
@@ -643,6 +647,10 @@ ${spinnerCSS}
 
 .tab-add-btn:hover .plus {
   color: var(--text-color--tab--add--hover);
+}
+
+.tab-add-btn:active .plus {
+  color: var(--text-color--tab--add);
 }
 
 /* make room for traffic lights */
