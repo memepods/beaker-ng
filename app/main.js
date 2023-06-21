@@ -67,10 +67,6 @@ process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
 // enable the sandbox
 app.enableSandbox()
 
-// HACK fix for cors in custom protocols
-// see https://github.com/electron/electron/issues/20730
-app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
-
 // Needed for Electron <13 on Linux
 // app.commandLine.appendSwitch('no-sandbox');
 // Needed for Electron <13 on Linux
@@ -121,6 +117,10 @@ if (process.platform === 'win32' || process.platform === 'darwin') {
 if (process.env.NODE_ENV === 'development') {
   app.commandLine.appendSwitch('remote-debugging-port', '9222');
 }
+
+// HACK fix for cors in custom protocols
+// See https://github.com/electron/electron/issues/20730
+app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
 // enable process reuse to speed up navigations
 // see https://github.com/electron/electron/issues/18397
