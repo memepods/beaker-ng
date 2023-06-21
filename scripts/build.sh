@@ -60,7 +60,7 @@ esac
 
 distcleanBeaker () {
 	printf "\n" &&
-	printf "${bold}${YEL} Cleaning node_modules...${c0}\n" &&
+	printf "${bold}${YEL} Cleaning dist...${c0}\n" &&
 	
 	npm run distclean
 }
